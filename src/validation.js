@@ -1,5 +1,5 @@
 import { GENERATE_FIND_CUSTOM_SEPERATOR_START_MARK_ONLY_REGEX } from './utils.js';
-import { CONSTANT_CHAR } from './constants.js';
+import { CONSTANT_CHAR } from './constants/index.js';
 
 export function isInputExist(inputString) {
   return inputString.length > 0;
@@ -22,7 +22,7 @@ export function isCustomSeperatorExist(customSeperator) {
 }
 
 export function isCustomSeperatorChar(customSeperator) {
-  return Number.isNaN(customSeperator);
+  return isNaN(customSeperator);
 }
 
 export function hasInputCustomSeparatorStartMarkOnly(inputString) {
