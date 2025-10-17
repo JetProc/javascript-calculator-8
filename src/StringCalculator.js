@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE, DEFAULT_SEPRATOR, CONSTANT_CHAR } from './constants/index.js';
+import { ERROR_MESSAGE, DEFAULT_SEPARATOR, CONSTANT_CHAR } from './constants/index.js';
 import { GENERATE_FIND_CUSTOM_SEPARATOR_REGEX, GENERATE_SEPARATOR_SPLIT_REGEX } from './utils.js';
 import {
   isInputExist,
@@ -33,12 +33,12 @@ class StringCalculator {
 
       const remainingInput = input.slice(customSeparator.length + 4);
       return {
-        separators: [...DEFAULT_SEPRATOR, customSeparator],
+        separators: [...DEFAULT_SEPARATOR, customSeparator],
         numberString: remainingInput,
       };
     }
 
-    return { separators: DEFAULT_SEPRATOR, numberString: input };
+    return { separators: DEFAULT_SEPARATOR, numberString: input };
   }
 
   #findCustomSeparatorMark(input) {
