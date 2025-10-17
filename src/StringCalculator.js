@@ -1,12 +1,12 @@
 import { ERROR_MESSAGE, DEFAULT_SEPRATOR, CONSTANT_CHAR } from './constants/index.js';
-import { GENERATE_FIND_CUSTOM_SEPERATOR_REGEX, GENERATE_SEPERATOR_SPLIT_REGEX } from './utils.js';
+import { GENERATE_FIND_CUSTOM_SEPARATOR_REGEX, GENERATE_SEPARATOR_SPLIT_REGEX } from './utils.js';
 import {
   isInputExist,
   isValueNumber,
   isValuePositiveNumber,
   hasInputSeparator,
-  isCustomSeperatorExist,
-  isCustomSeperatorChar,
+  isCustomSeparatorExist,
+  isCustomSeparatorChar,
   hasInputCustomSeparatorStartMarkOnly,
 } from './validation.js';
 
@@ -42,16 +42,16 @@ class StringCalculator {
   }
 
   #findCustomSeparatorMark(input) {
-    const FIND_CUSTOM_SEPERATOR_REGEX = GENERATE_FIND_CUSTOM_SEPERATOR_REGEX(
-      CONSTANT_CHAR.CUSTOM_SEPERATOR_START_MARK,
+    const FIND_CUSTOM_SEPARATOR_REGEX = GENERATE_FIND_CUSTOM_SEPARATOR_REGEX(
+      CONSTANT_CHAR.CUSTOM_SEPARATOR_START_MARK,
       CONSTANT_CHAR.CUSTOM_SEPARATOR_END_MARK
     );
-    return input.match(FIND_CUSTOM_SEPERATOR_REGEX);
+    return input.match(FIND_CUSTOM_SEPARATOR_REGEX);
   }
 
   #getNumbers(numberString, separators) {
-    const SEPERATOR_SPLIT_REGEX = GENERATE_SEPERATOR_SPLIT_REGEX(separators);
-    const splitList = numberString.split(SEPERATOR_SPLIT_REGEX).map((value) => value.trim());
+    const SEPARATOR_SPLIT_REGEX = GENERATE_SEPARATOR_SPLIT_REGEX(separators);
+    const splitList = numberString.split(SEPARATOR_SPLIT_REGEX).map((value) => value.trim());
 
     this.#validateNumberTypes(splitList);
 
@@ -59,17 +59,17 @@ class StringCalculator {
   }
 
   #validateCustomSeparator(customSeparator) {
-    if (!isCustomSeperatorExist(customSeparator)) {
+    if (!isCustomSeparatorExist(customSeparator)) {
       throw new Error(ERROR_MESSAGE.CUSTOM_SEPARATOR_MUST_EXIST);
     }
-    if (!isCustomSeperatorChar(customSeparator)) {
+    if (!isCustomSeparatorChar(customSeparator)) {
       throw new Error(ERROR_MESSAGE.CUSTOM_SEPARATOR_MUST_BE_CHARACTER);
     }
   }
 
   #validateInputString(input, separators) {
-    if (input.startsWith(CONSTANT_CHAR.CUSTOM_SEPERATOR_START_MARK) && hasInputCustomSeparatorStartMarkOnly(input)) {
-      throw new Error(ERROR_MESSAGE.CUSTOM_SEPERATOR_MUST_BE_CLOSED);
+    if (input.startsWith(CONSTANT_CHAR.CUSTOM_SEPARATOR_START_MARK) && hasInputCustomSeparatorStartMarkOnly(input)) {
+      throw new Error(ERROR_MESSAGE.CUSTOM_SEPARATOR_MUST_BE_CLOSED);
     }
   }
 
