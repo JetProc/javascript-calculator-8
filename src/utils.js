@@ -1,6 +1,6 @@
 const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-export function GENERATE_FIND_CUSTOM_SEPERATOR_REGEX(startMark, endMark) {
+export function GENERATE_FIND_CUSTOM_separator_REGEX(startMark, endMark) {
   const ESCAPED_START_MARK = escapeRegExp(startMark);
   const ESCAPED_END_MARK = escapeRegExp(endMark);
 
@@ -8,7 +8,7 @@ export function GENERATE_FIND_CUSTOM_SEPERATOR_REGEX(startMark, endMark) {
   return new RegExp(REGEX);
 }
 
-export function GENERATE_FIND_CUSTOM_SEPERATOR_START_MARK_ONLY_REGEX(startMark, endMark) {
+export function GENERATE_FIND_CUSTOM_separator_START_MARK_ONLY_REGEX(startMark, endMark) {
   const ESCAPED_START_MARK = escapeRegExp(startMark);
   const ESCAPED_END_MARK = escapeRegExp(endMark);
 
@@ -16,7 +16,7 @@ export function GENERATE_FIND_CUSTOM_SEPERATOR_START_MARK_ONLY_REGEX(startMark, 
   return new RegExp(REGEX);
 }
 
-export function GENERATE_SEPERATOR_SPLIT_REGEX(seperatorList) {
-  const JOINED_SEPERATOR = seperatorList.join('');
-  return new RegExp(`[${JOINED_SEPERATOR}]`);
+export function GENERATE_separator_SPLIT_REGEX(separatorList) {
+  const JOINED_separator = separatorList.join('');
+  return new RegExp(`[${JOINED_separator}]`);
 }
