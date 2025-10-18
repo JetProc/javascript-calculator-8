@@ -10,7 +10,7 @@ import {
   hasInputCustomSeparatorStartMarkOnly,
 } from './validation.js';
 
-class StringCalculator {
+class Calculator {
   add(inputString) {
     const trimmedInput = inputString.trim();
     if (!isInputExist(trimmedInput)) return 0;
@@ -83,4 +83,4 @@ class StringCalculator {
   }
 }
 
-export default StringCalculator;
+export default Calculator;
