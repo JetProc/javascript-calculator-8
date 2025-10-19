@@ -26,7 +26,7 @@ export function isCustomSeparatorChar(customseparator) {
 }
 
 export function hasInputCustomSeparatorStartMarkOnly(inputString) {
-  const REGEX = GENERATE_FIND_CUSTOM_separator_START_MARK_ONLY_REGEX(
+  const REGEX = GENERATE_FIND_CUSTOM_SEPARATOR_START_MARK_ONLY_REGEX(
     CONSTANT_CHAR.CUSTOM_SEPARATOR_START_MARK,
     CONSTANT_CHAR.CUSTOM_SEPARATOR_END_MARK
   );
