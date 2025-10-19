@@ -31,7 +31,9 @@ class Calculator {
       const customSeparator = customSeparatorInfo[1]?.trim();
       this.#validateCustomSeparator(customSeparator);
 
-      const remainingInput = input.slice(customSeparator.length + 4);
+      const fullMatchString = customSeparatorInfo[0];
+      const remainingInput = input.slice(fullMatchString.length);
+
       return {
         separators: [...DEFAULT_SEPARATOR, customSeparator],
         numberString: remainingInput,
