@@ -17,6 +17,7 @@ export function GENERATE_FIND_CUSTOM_SEPARATOR_START_MARK_ONLY_REGEX(startMark, 
 }
 
 export function GENERATE_SEPARATOR_SPLIT_REGEX(SEPARATORList) {
-  const JOINED_SEPARATOR = SEPARATORList.join('');
-  return new RegExp(`[${JOINED_SEPARATOR}]`);
+  const escapedSeparators = SEPARATORList.map(escapeRegExp);
+  const REGEX_STRING = escapedSeparators.join('|');
+  return new RegExp(REGEX_STRING);
 }
