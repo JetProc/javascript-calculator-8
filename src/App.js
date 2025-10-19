@@ -8,6 +8,7 @@ class App {
       const input = await Console.readLineAsync(INFORMATION_MESSAGE.START);
       const calculator = new Calculator();
       const result = calculator.add(input);
+
       Console.print(`${INFORMATION_MESSAGE.RESULT}${result}`);
     } catch (error) {
       Console.print(error.message);
