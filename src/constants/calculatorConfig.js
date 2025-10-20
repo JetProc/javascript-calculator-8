@@ -1,4 +1,4 @@
-export const DEFAULT_SEPARATOR = [',', ':'];
+export const SEPARATORS = [',', ':'];
 
 export const CONSTANT_CHAR = {
   CUSTOM_SEPARATOR_START_MARK: '//',
