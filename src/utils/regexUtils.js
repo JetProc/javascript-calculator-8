@@ -21,3 +21,7 @@ export function GENERATE_SEPARATOR_SPLIT_REGEX(SEPARATORList) {
   const REGEX_STRING = escapedSeparators.join('|');
   return new RegExp(REGEX_STRING);
 }
+
+export function GENERATE_CUSTOM_SEPARATOR_IS_CHAR_REGEX() {
+  return /^[^0-9]+$/;
+}
