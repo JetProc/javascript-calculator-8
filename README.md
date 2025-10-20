@@ -12,32 +12,33 @@
 
 ## 🐶 폴더 구조
 
-`.
-├── __tests__
-│   └── ApplicationTest.js  # 통합 테스트
-├── src
-│   ├── calculator
-│   │   ├── Calculator.js       # 핵심 로직 (계산기 본체)
-│   │   └── CalculatorParser.js # 입력 문자열 파싱 담당
-│   ├── constants
-│   │   ├── calculatorConfig.js # 구분자 등 설정 값
-│   │   ├── index.js            # constants 모듈 export
-│   │   └── messages.js         # 안내 및 에러 메시지
-│   ├── services
-│   │   ├── NumberService.js    # 숫자 추출 및 합산
-│   │   └── SeparatorService.js # 구분자 파싱 및 처리
-│   ├── utils
-│   │   └── regexUtils.js       # 정규식 생성 유틸
-│   ├── validate
-│   │   ├── conditions.js     # 유효성 검증 조건 함수
-│   │   └── validators.js     # 유효성 검증 실행 함수
-│   ├── App.js                  # 어플리케이션 실행
-│   └── index.js                # 어플리케이션 시작점
-├── .gitignore
-├── .npmrc
-├── package-lock.json
-├── package.json
-└── README.md`
+.
+
+- \_\_tests\_\_
+  - ApplicationTest.js # 통합 테스트
+- src
+  - calculator
+    - Calculator.js # 핵심 로직 (계산기 본체)
+    - CalculatorParser.js # 입력 문자열 파싱 담당
+  - constants
+    - calculatorConfig.js # 구분자 등 설정 값
+    - index.js # constants 모듈 export
+    - messages.js # 안내 및 에러 메시지
+  - services
+    - NumberService.js # 숫자 추출 및 합산
+    - SeparatorService.js # 구분자 파싱 및 처리
+  - utils
+    - regexUtils.js # 정규식 생성 유틸
+  - validate
+    - conditions.js # 유효성 검증 조건 함수
+    - validators.js # 유효성 검증 실행 함수
+  - App.js # 어플리케이션 실행
+  - index.js # 어플리케이션 시작점
+- .gitignore
+- .npmrc
+- package-lock.json
+- package.json
+- README.md
 
 ---
 
@@ -89,22 +90,22 @@
 
 1. **`[ERROR] 커스텀 구분자의 닫는 문자열이 필요합니다.`**
 
-  - `//`로 시작했지만 `\n`이 없는 경우 (e.g., `//;1;2;3`)
+- `//`로 시작했지만 `\n`이 없는 경우 (e.g., `//;1;2;3`)
 
 2. **`[ERROR] 커스텀 구분자는 비어있을 수 없습니다.`**
 
-  - `//`와 `\n` 사이에 아무 문자도 없거나 공백만 있는 경우 (e.g., `//\\n1,2,3` 또는 `// \\n`)
+- `//`와 `\n` 사이에 아무 문자도 없거나 공백만 있는 경우 (e.g., `//\\n1,2,3` 또는 `// \\n`)
 
 3. **`[ERROR] 커스텀 구분자는 문자만 입력되어야 합니다.`**
 
-  - 커스텀 구분자에 숫자가 포함된 경우 (e.g., `//1\\n...` 또는 `//a1\\n...`)
+- 커스텀 구분자에 숫자가 포함된 경우 (e.g., `//1\\n...` 또는 `//a1\\n...`)
 
 4. **`[ERROR] 잘못된 입력값입니다.`**
 
-  - 구분자로 분리된 값 중 숫자가 아닌 값(문자, 특수문자 등)이 포함된 경우 (e.g., `1,2,a` 또는 `a,b,c`)
-  - 구분자가 연속으로 사용된 경우 (e.g., `1,,2::3`)
-  - 문자열이 구분자로 시작하거나 끝나는 경우 (e.g., `,1,2,3` 또는 `1,2,3,`)
+- 구분자로 분리된 값 중 숫자가 아닌 값(문자, 특수문자 등)이 포함된 경우 (e.g., `1,2,a` 또는 `a,b,c`)
+- 구분자가 연속으로 사용된 경우 (e.g., `1,,2::3`)
+- 문자열이 구분자로 시작하거나 끝나는 경우 (e.g., `,1,2,3` 또는 `1,2,3,`)
 
 5. **`[ERROR] 숫자는 양수만 입력되어야 합니다.`**
 
-  - 구분자로 분리된 값 중 음수(e.g., `1,-2,3`) 또는 `0` (e.g., `0,1,2`)이 포함된 경우
+- 구분자로 분리된 값 중 음수(e.g., `1,-2,3`) 또는 `0` (e.g., `0,1,2`)이 포함된 경우
