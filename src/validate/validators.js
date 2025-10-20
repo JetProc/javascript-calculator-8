@@ -7,7 +7,7 @@ import {
   hasInputCustomSeparatorStartMarkOnly,
 } from './conditions.js';
 
-// Input 검증
+// 입력 문자열 검증
 export function validateEmptyInput(input) {
   return input.length > 0;
 }
@@ -18,7 +18,17 @@ export function validateInputString(input) {
   }
 }
 
-// Number Type 검증
+// 커스텀 구분자 검증
+export function validateCustomSeparator(customSeparator) {
+  if (!isCustomSeparatorExist(customSeparator)) {
+    throw new Error(ERROR_MESSAGE.CUSTOM_SEPARATOR_MUST_EXIST);
+  }
+  if (!isCustomSeparatorChar(customSeparator)) {
+    throw new Error(ERROR_MESSAGE.CUSTOM_SEPARATOR_MUST_BE_CHARACTER);
+  }
+}
+
+// 자료형 검증
 export function validateNumberTypes(list) {
   if (!isAllNumber(list)) {
     throw new Error(ERROR_MESSAGE.VALUE_MUST_BE_NUMBER);
@@ -26,15 +36,5 @@ export function validateNumberTypes(list) {
 
   if (!isAllPositiveNumber(list)) {
     throw new Error(ERROR_MESSAGE.VALUE_MUST_BE_POSITIVE);
-  }
-}
-
-// Separator 검증
-export function validateCustomSeparator(customSeparator) {
-  if (!isCustomSeparatorExist(customSeparator)) {
-    throw new Error(ERROR_MESSAGE.CUSTOM_SEPARATOR_MUST_EXIST);
-  }
-  if (!isCustomSeparatorChar(customSeparator)) {
-    throw new Error(ERROR_MESSAGE.CUSTOM_SEPARATOR_MUST_BE_CHARACTER);
   }
 }
