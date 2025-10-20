@@ -10,6 +10,37 @@
 
 ---
 
+## 🐶 폴더 구조
+
+`.
+├── __tests__
+│   └── ApplicationTest.js  # 통합 테스트
+├── src
+│   ├── calculator
+│   │   ├── Calculator.js       # 핵심 로직 (계산기 본체)
+│   │   └── CalculatorParser.js # 입력 문자열 파싱 담당
+│   ├── constants
+│   │   ├── calculatorConfig.js # 구분자 등 설정 값
+│   │   ├── index.js            # constants 모듈 export
+│   │   └── messages.js         # 안내 및 에러 메시지
+│   ├── services
+│   │   ├── NumberService.js    # 숫자 추출 및 합산
+│   │   └── SeparatorService.js # 구분자 파싱 및 처리
+│   ├── utils
+│   │   └── regexUtils.js       # 정규식 생성 유틸
+│   ├── validate
+│   │   ├── conditions.js     # 유효성 검증 조건 함수
+│   │   └── validators.js     # 유효성 검증 실행 함수
+│   ├── App.js                  # 어플리케이션 실행
+│   └── index.js                # 어플리케이션 시작점
+├── .gitignore
+├── .npmrc
+├── package-lock.json
+├── package.json
+└── README.md`
+
+---
+
 ## 🐶 구현 기능 목록
 
 - **1. 입력 및 실행**
@@ -32,13 +63,13 @@
 
 ---
 
-## 🐶 예외 처리 (자연어 기반)
+## 🐶 예외 처리 (자연어 기반)
 
 ### 입력 문자열 예외처리
 
 - [x] 1.입력 문자열이 없다면 0 출력
 - [x] 2.입력 문자열에 커스텀 구분자의 닫는 태그가 없는 경우 ERROR
-- [x] 3.입력 문자열에 구분자가 없다면 ERROR
+- [x] 3.입력 문자열에 구분자가 없다면 ERROR (-> _수정: 구분자 없이 숫자만 입력 시 해당 숫자 반환_)
 
 ### 구분자 예외처리
 
