@@ -1,8 +1,10 @@
 import { SEPARATORS, CONSTANT_CHAR } from '../constants/index.js';
 import { GENERATE_FIND_CUSTOM_SEPARATOR_REGEX } from '../utils/regexUtils.js';
-import { validateCustomSeparator } from '../validate/validators.js';
+import { validateInputString, validateCustomSeparator } from '../validate/validators.js';
 
 export function parseCustomSeparator(input) {
+  validateInputString(input);
+
   const customSeparatorInfo = findCustomSeparatorMark(input);
 
   if (customSeparatorInfo) {
